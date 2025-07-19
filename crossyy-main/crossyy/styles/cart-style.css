@@ -1,0 +1,64 @@
+@font-face {
+    font-family: "Anonymous Pro";
+    src: url(fonts/AnonymousPro-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+  font-family: "Anonymous Pro";
+  src: url(fonts/AnonymousPro-Regular.ttf);
+}
+
+* {
+  font-family: "Anonymous Pro";
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.cart-item {
+    display: flex;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    justify-content: space-around;
+}
+
+
+.cart-info {
+    display: flex;
+    margin-top: 25px;
+    gap: 25px;
+}
+
+.price {
+    font-size: 50px;
+}
+
+.cart-counter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.items_control {
+    background-color: rgb(203, 217, 212); 
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+	transition: 0.2s ease-in;
+	text-align: center;
+}
+
+.items_control:hover {
+    background: #898584;
+    color: #FFF;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
