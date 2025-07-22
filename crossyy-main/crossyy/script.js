@@ -1,9 +1,8 @@
 const buyButton = document.querySelector(".add-to-cart");
-let articul = {}
-
 
 function handleCart(event) {
   if (event.target.hasAttribute("data-cart")) {
+    buyButton.disabled = true;
     const card = event.target.closest(".container");
     const productInfo = {
       id: card.dataset.id,
@@ -12,30 +11,29 @@ function handleCart(event) {
       text: card.querySelector(".container__text").innerText,
       price: card.querySelector(".price").innerText,
     };
-    const cartItemHTML = `<div data-id="${productInfo.id}" class="cart-item">
-        <img
-          alt="${productInfo.title}"
-          src="${productInfo.imgSrc}"
-          class="container__image"
-        />
-        <div class="cart-description">
-          <h3 class="container__title">${productInfo.title}</h3>
-          <p class="container__text">${productInfo.text}</p>
-          <div class="cart-info">
-            <p class="price">${productInfo.price}</p>
-            <div class="cart-counter">
-              <div class="items_control" data-action="minus">-</div>
-              <div class="items curent">1</div>
-              <div class="items_control" data-action="plus">+</div>
-            </div>
-          </div>
-        </div>
-      </div>`;
-    localStorage.setItem('cart', cartItemHTML)
-    event.target.textContent = 'В корзине'
-    
+    let productInfoJSON = JSON.stringify(productInfo);
+    fetch("https://example", {
+      method: "POST",
+      body: productInfoJSON,
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json)
+      .then((data) => {
+        console.log(data);
+        cards.push(data);
+        renderCards(cards);
+        form.reset();
+      })
+      .catch(() => {
+        errorText.textContent = "Произошла ошибка";
+      })
+      .finally(() => {
+        buyButton.disabled = false;
+        event.target.textContent = "В корзине";
+      });
   }
 }
-
 
 window.addEventListener("click", handleCart);
