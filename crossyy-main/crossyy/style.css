@@ -24,8 +24,13 @@ body {
   gap: 25px;
 }
 
+/* шапка */
+
 header {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 2;
   align-items: center;
   justify-content: space-around;
   background-color: white;
@@ -57,6 +62,8 @@ header {
   color: white;
 }
 
+/* карточки */
+
 .super-container {
   display: flex;
   flex-direction: column;
@@ -70,21 +77,43 @@ header {
 }
 
 .container {
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 15px;
   max-width: 371px;
   background-color: white;
   border-radius: 15px;
+  
   transition: ease-in-out 200ms; 
 }
 
 .title-n-text {
   box-sizing: border-box;
-  padding: 30px 30px 15px 30px;
+  padding: 15px 30px 0 30px;
 }
+
+.add-to-cart {
+  display: block;
+  z-index: 1;
+  width: 70%;
+  font-weight: 400;
+  font-size: 17px;
+  color: #0a0f08;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #0a0f08;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 15px 0px;
+}
+
+/* футер */
 
 footer {
   background-color: rgb(27, 31, 30);
+  bottom: 0;
   width: 100%;
   padding: 20px 0;
 }
@@ -113,7 +142,7 @@ footer {
   color: aliceblue;
 }
 
-/* карточки */
+/* большие карточки */
 
 #sneaker-card {
   border-radius: 50px; 
@@ -191,6 +220,8 @@ img {
 	width: 370px;
   border-radius: 15px 15px 0px 0px ;
 }
+
+/* анимации и адаптив */
 
 .container:hover { 
   box-shadow: 10px 10px 13px 0px rgba(0, 0, 0, 0.25); 
